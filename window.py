@@ -1,6 +1,10 @@
 import sys
+import os
 from PySide2 import QtCore, QtWidgets, QtGui
 import socketio
+
+HOST = os.environ.get('HOST', 'http://localhost')
+PORT = os.environ.get('PORT', 5000)
 
 
 class MyWindow(QtWidgets.QWidget):
@@ -8,7 +12,7 @@ class MyWindow(QtWidgets.QWidget):
         super().__init__()
 
         self.sio = socketio.Client()
-        self.sio.connect('http://localhost:5000')
+        self.sio.connect(f'{HOST}:{PORT}')
         self.sio.on('new_image', self.set_image)
 
 
