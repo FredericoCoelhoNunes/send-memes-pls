@@ -9,7 +9,6 @@ from flask import (
     render_template,
     redirect
 )
-from PIL import Image
 import io
 from flask_socketio import SocketIO, emit
 
