@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertain Fred</title>
+</head>
+<body>
+    <h1>Entertain Fred</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" id="image" name="image"> 
+        <input type="submit" value="Upload meme">
+    </form>
+
+    <form action="/link" method="GET">
+        <input type="text" id="url" name="url"> 
+        <input type="submit" value="Link meme">
+    </form>
+
+</body>
+</html>
