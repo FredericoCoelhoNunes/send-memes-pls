@@ -1,7 +1,6 @@
 import sys
 import os
 
-from PySide2 import QtCore, QtWidgets, QtGui
 from flask import (
     Flask,
     flash,
