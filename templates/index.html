@@ -12,10 +12,13 @@
         <input type="submit" value="Upload meme">
     </form>
 
+    {% for message in get_flashed_messages() %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    
     <form action="/link" method="GET">
         <input type="text" id="url" name="url"> 
         <input type="submit" value="Link meme">
     </form>
-
 </body>
 </html>

@@ -1,7 +1,14 @@
 import sys
-import threading
+import os
+
 from PySide2 import QtCore, QtWidgets, QtGui
-from flask import Flask, request, render_template, redirect, url_for
+from flask import (
+    Flask,
+    flash,
+    request,
+    render_template,
+    redirect
+)
 from PIL import Image
 import io
 from flask_socketio import SocketIO, emit
@@ -10,6 +17,7 @@ import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
+app.secret_key = os.environ['FLASK_SECRET_KEY']
 socketio = SocketIO(app)
 
 
@@ -27,13 +35,17 @@ def upload_image():
 
 @app.route('/link', methods=['GET'])
 def image_from_link():
-    response = requests.get(request.args['url'])
-    
-    socketio.emit('new_image', response.content)
+    try:
+        response = requests.get(request.args['url'])
+        socketio.emit('new_image', response.content)
+    except:
+        flash("Couldn't get the meme from that URL :(")
 
     return redirect('/')
 
+def run_server():
+    socketio.run(app, port=5000)  
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=5000) 
+    run_server()
