@@ -22,7 +22,7 @@ class MyWindow(QtWidgets.QWidget):
         self.image.setFixedSize(750, 750)
         self.image.setScaledContents(True)
 
-        self.image.setText('No memes yet...')
+        self.image.setText('No image yet...')
         self.font = QtGui.QFont()
         self.font.setBold(True)
         self.font.setPointSize(60)
