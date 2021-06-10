@@ -22,6 +22,7 @@ Follow these steps to deploy the application to Heroku:
 
 * heroku login
 * heroku create <choose name>
+* heroku git:remote -a <chosen name>
 * heroku config:set FLASK_SECRET_KEY=<anything> (it's only used to flash error messages to the user)
 * git push heroku master
 * set the following environment variables:

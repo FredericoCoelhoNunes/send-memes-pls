@@ -37,7 +37,7 @@ def image_from_link():
         response = requests.get(request.args['url'])
         socketio.emit('new_image', response.content)
     except:
-        flash("Couldn't get the meme from that URL :(")
+        flash("Couldn't get the image from that URL :(")
 
     return redirect('/')
 
