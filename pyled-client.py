@@ -1,7 +1,5 @@
 import socketio
 import os
-<<<<<<< HEAD
-=======
 
 from PIL import Image
 from PIL import ImageDraw
@@ -9,10 +7,7 @@ import time
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
 import io
->>>>>>> mariana-branch
 
-# export HOST=https://send-art-pls.herokuapp.com/
-# export PORT=443
 HOST = os.environ.get('HOST', 'http://localhost')
 PORT = os.environ.get('PORT', 5000)
 
@@ -54,7 +49,3 @@ def set_image(image_bytes):
 sio = socketio.Client()
 sio.connect(f'{HOST}:{PORT}')
 sio.on('new_image', set_image)
-<<<<<<< HEAD
-=======
-
->>>>>>> mariana-branch
