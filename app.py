@@ -12,7 +12,6 @@ import io
 from flask_socketio import SocketIO, emit
 
 import requests
-from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 app.secret_key = os.environ['FLASK_SECRET_KEY']
