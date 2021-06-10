@@ -12,24 +12,26 @@ The application has two components:
 * The server:
   * app.py: a Flask server that receives images, or URLs pointing to images, and sends them to the client, 
 * The client(s): 
-  * window.py: runs a window that listens to the image server using the WebSocker protocol, and displays new images when they are set.
-  * pyled-client.py: runs a program that sends the images to a led matrix (tested with a Raspberry Pi since it can both run the client and control the matrix).
+  * window.py: runs a window that listens to the image server using the WebSocket protocol, and displays new images when they are set.
+  * pyled-client.py: runs a program that received the uploaded images and sends them to a led matrix (tested with a Raspberry Pi since it can both run the client and control the matrix).
   
 
 # Running locally
 
-You can test the application locally with the simple window client by following these steps
+You can test the application locally with the simple window client by following these steps:
 
 * Install `requirements.txt` and `client-requirements.txt`
 * Run run_local.sh
-* Go to `localhost:5000` on your browser
+* Go to `localhost:5000` on your browser and upload images; they should appear in the window
 * (Optional) If you want to open that port to external connections, to show the app to someone, you can use a tool like [ngrok](https://ngrok.com/)
 
 # Deploying the server to Heroku
 
-Install Heroku: https://devcenter.heroku.com/articles/heroku-cli
+You can also deploy the image server to Heroku (a cloud platform) using their free tier.
 
-Follow these steps to deploy the application to Heroku:
+First, install Heroku: https://devcenter.heroku.com/articles/heroku-cli
+
+Then, follow these steps to deploy the application to Heroku:
 
 * heroku login
 * heroku create <choose name>
@@ -51,6 +53,8 @@ First, read the information on this repository: https://github.com/hzeller/rpi-r
 
 You must be able to run the [sample programs provided by them](https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/examples-api-use).
 
-Afterwards, install the [Python bindings](https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/bindings/python)
+Afterwards, install the [Python bindings](https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/bindings/python).
 
-Finally, it should just be a matter of running `pyled-client.py`, and the images should show up in the matrix!
+Finally, it should just be a matter of running `pyled-client.py`, and the images should show up in the matrix as they're uploaded!
+
+This is quite a complex process and it varies a lot depending on which matrix or controller you're using. If things aren't working for you, but something shows up in the matrix, try changing the parameters on the `pyled-client.py` file.
