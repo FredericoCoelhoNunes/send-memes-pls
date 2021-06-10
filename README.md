@@ -36,14 +36,14 @@ Follow these steps to deploy the application to Heroku:
 * heroku git:remote -a <chosen name>
 * heroku config:set FLASK_SECRET_KEY=<anything> (it's only used to flash error messages to the user)
 * git push heroku master
-* set the following environment variables:
+* set the following environment variables with `export`:
   * HOST: the URL of the Heroku server; 
   * PORT: the port used by Heroku (443)
 * Run window.py locally
 * Open your browser, go to you app's URL, and send memes
 
 
-# Led matrix 
+# Connecting to a led matrix 
 
 Sending images to a led matrix was tested with a Raspberry Pi.
 
