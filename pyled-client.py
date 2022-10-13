@@ -8,13 +8,9 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 
 import io
 
+
 HOST = os.environ.get('HOST', 'http://localhost')
 PORT = os.environ.get('PORT', 5000)
-
-def set_image(image_bytes):
-    # DO SOMETHING WITH IMAGE BYTES
-    print(image_bytes)
-    return
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
@@ -39,13 +35,11 @@ def set_image(image_bytes):
         image = image.resize((options.rows, options.cols))
         matrix.Clear()
         matrix.SetImage(image, 0, 0, unsafe=False)
-        
-        
+          
     except Exception as e:
         print(e)
-    
 
-
+ 
 sio = socketio.Client()
 sio.connect(f'{HOST}:{PORT}')
 sio.on('new_image', set_image)
